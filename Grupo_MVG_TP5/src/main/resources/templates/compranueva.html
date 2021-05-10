@@ -9,11 +9,16 @@
 	</head>
 	<body>
 	<header th:replace="/layout/cabecera :: header"></header>
+	<div th:replace="/layout/navegacion :: nav"></div>
 		<div class="container">
 			<div class="row">
 				<div class="col-md-10">
 					<h1 align="center"><font face="times new roman">Nueva Compra</font></h1>
-					<form th:action="@{/compra/nueva}" method="post" th:object="${compra}">
+					<div class="btn-group justify-content-center">
+					  <a href="/compra/listado" class="btn btn-outline-info">Listado de Compras</a>
+					  <a href="/compra/ultima" class="btn btn-outline-info"><i class="bi bi-binoculars mr-2"></i>Consultar ultima compra</a>
+					</div>
+					<form th:action="@{/compra/guardar}" th:object="${compra}" method="POST">
 					  <div class="form-row">
 					    <div class="col-md-6 mb-3">
 					      <label for="codigo">Codigo</label>
@@ -41,9 +46,6 @@
 		
 		<footer th:replace="/layout/footer :: footer"></footer>
 		
-		<script type="text/javascript" th:src="@{/webjars/jquery/3.5.1/jquery.min.js}"></script>
-		<script type="text/javascript" th:src="@{/webjars/popper.js/1.16.1-lts/popper.min.js}"></script>
-		<script type="text/javascript" th:src="@{/webjars/bootstrap/4.6.0-1/js/bootstrap.min.js}"></script>
 		<script type="text/javascript" th:src="@{/webjars/font-awesome/5.14.0/js/all.min.js}"></script>
 	
 	</body>

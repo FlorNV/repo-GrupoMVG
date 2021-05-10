@@ -43,7 +43,7 @@ public class CompraController {
 		return model;
 	}
 	
-	@GetMapping("/compra/ultimo")
+	@GetMapping("/compra/ultima")
 	public String getCompraUltimoPage(Model model) {
 		model.addAttribute(compraService.consultarUltimaCompra());
 		return "ultimacompra";
