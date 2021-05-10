@@ -21,12 +21,28 @@
 					<form th:action="@{/compra/guardar}" th:object="${compra}" method="POST">
 					  <div class="form-row">
 					    <div class="col-md-6 mb-3">
-					      <label for="codigo">Codigo</label>
+					      <label for="codigo">Codigo de Compra</label>
 					      <input type="number" class="form-control" id="codigo" th:field="*{codigo}" required>
 					    </div>
 					    <div class="col-md-6 mb-3">
-					      <label for="producto">Nombre Producto</label>
-					      <input type="text" class="form-control" id="producto" th:field="*{producto}" required>
+					      <label for="CodProd">Código del Producto</label>
+					      <input type="number" class="form-control" id="CodProd" th:field="*{producto.codigo}" required>
+					    </div>
+					    <div class="col-md-6 mb-3">
+					      <label for="NombreProd">Nombre del Producto</label>
+					      <input type="text" class="form-control" id="NombreProd" th:field="*{producto.nombre}" required>
+					    </div>
+					    <div class="col-md-6 mb-3">
+					      <label for="PrecioProd">Precio del Producto</label>
+					      <input type="number" class="form-control" id="PrecioProd" th:field="*{producto.precio}" required step="any">
+					    </div>
+					    <div class="col-md-6 mb-3">
+					      <label for="MarcaProd">Marca del Producto</label>
+					      <input type="text" class="form-control" id="MarcaProd" th:field="*{producto.marca}" required>
+					    </div>
+					    <div class="col-md-6 mb-3">
+					      <label for="StockProd">Stock del Producto</label>
+					      <input type="number" class="form-control" id="StockProd" th:field="*{producto.stock}" required>
 					    </div>
 					    <div class="col-md-6 mb-3">
 					      <label for="cantidad">Cantidad</label>
@@ -34,7 +50,7 @@
 					    </div>
 					    <div class="col-md-6 mb-3">
 					      <label for="total">Total</label>
-					      <input type="number" class="form-control" id="total" th:field="*{total}" required>
+					      <input type="number" class="form-control" id="total" th:field="*{total}" required step="any">
 					    </div>
 					  </div>
 					  <button class="btn btn-primary" type="submit">Enviar</button>
