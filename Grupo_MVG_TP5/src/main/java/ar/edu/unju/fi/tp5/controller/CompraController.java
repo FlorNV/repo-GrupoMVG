@@ -1,5 +1,7 @@
 package ar.edu.unju.fi.tp5.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
@@ -10,7 +12,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import ar.edu.unju.fi.tp5.model.Compra;
+import ar.edu.unju.fi.tp5.model.Producto;
 import ar.edu.unju.fi.tp5.service.ICompraService;
+import ar.edu.unju.fi.tp5.service.IProductoService;
 
 @Controller
 public class CompraController {
@@ -21,10 +25,15 @@ public class CompraController {
 	@Autowired
 	@Qualifier("compraUtilService")
 	private ICompraService compraService;
+	@Autowired
+	@Qualifier("productoUtilService")
+	private IProductoService productoService;
 	
 	@GetMapping("/compra/nueva")
 	public String getCompraNuevaPage(Model model) {
-		model.addAttribute(compra);
+		List<Producto> listaProductos = productoService.getProductos();
+		model.addAttribute("compra", compra);
+		model.addAttribute("productos", listaProductos);
 		return "compranueva";
 	}
 	
