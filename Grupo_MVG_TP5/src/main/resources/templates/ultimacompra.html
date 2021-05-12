@@ -17,34 +17,33 @@
 					<div class="container col-sm-12 col-md-10">
 						<h1 align="center"><font face="times new roman">Ultima compra relizada</font></h1>
 					
-								<table id="ultima-compra" class="table table-bordered table-hover table-dark">
-									<tbody class="text-center">
-									  	<tr>
-									      <th scope="row">Código de compra</th>
-									      <td><span th:text="${compra.codigo}"></span></td>
-									    </tr>
-									    <tr>
-									      <th scope="row">Nombre del producto</th>
-									      <td><span th:text="${compra.producto.nombre}"></span></td>
-									    </tr>
-									    <tr>
-									      <th scope="row">Marca del producto</th>
-									      <td><span th:text="${compra.producto.marca}"></span></td>
-									    </tr>
-									    <tr>
-									      <th scope="row">Cantidad</th>
-									      <td><span th:text="${compra.cantidad}"></span>
-									    <tr>
-									      <th scope="row">Total compra</th>
-									      <td>$<span th:text="${compra.total}"></span></td>
-									    </tr>
-									</tbody>
-								</table>
-						</div>
+						<table id="ultima-compra" class="table table-bordered table-hover table-dark">
+							<tbody class="text-center">
+							  	<tr>
+									<th scope="row">Código de compra</th>
+									<td><span th:text="${compra.codigo}"></span></td>
+								</tr>
+								<tr>
+									<th scope="row">Nombre del producto</th>
+									<td><span th:text="${compra.producto.nombre}"></span></td>
+								</tr>
+								<tr>
+									<th scope="row">Marca del producto</th>
+									<td><span th:text="${compra.producto.marca}"></span></td>
+								</tr>
+								<tr>
+									<th scope="row">Cantidad</th>
+									<td><span th:text="${compra.cantidad}"></span>
+								<tr>
+									<th scope="row">Total compra</th>
+									<td>$<span th:text="${compra.total}"></span></td>
+								</tr>
+							</tbody>
+						</table>
 					</div>
 				</div>
+		</div>
 		<footer th:replace="/layout/footer :: footer"></footer>
-		<script type="text/javascript" th:src="@{/webjars/font-awesome/5.14.0/js/all.min.js}"></script>
 	
 	</body>
 </html>
