@@ -6,6 +6,7 @@
 		<title>Formulario Compra</title>
 		<link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/4.6.0-1/css/bootstrap.min.css}">
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css">
+		<link rel="stylesheet" type="text/css" th:href="@{/css/style.css}">
 	</head>
 	<body>
 	<header th:replace="/layout/cabecera :: header"></header>
@@ -13,7 +14,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-10">
-					<h1 align="center"><font face="times new roman">Nueva Compra</font></h1>
+					<h1 align="center">Nueva Compra</font></h1>
 					<div class="btn-group justify-content-center">
 					  <a href="/compra/listado" class="btn btn-outline-info">Listado de Compras</a>
 					  <a href="/compra/ultima" class="btn btn-outline-info"><i class="bi bi-binoculars mr-2"></i>Consultar ultima compra</a>
@@ -24,26 +25,14 @@
 					      <label for="codigo">Codigo de Compra</label>
 					      <input type="number" class="form-control" id="codigo" th:field="*{codigo}" required>
 					    </div>
+					    
 					    <div class="col-md-6 mb-3">
-					      <label for="CodProd">Código del Producto</label>
-					      <input type="number" class="form-control" id="CodProd" th:field="*{producto.codigo}" required>
+					      <label for="producto">Seleccionar Producto</label>
+					      <select th:field="*{producto.codigo}" id="producto" class="form-control">
+							  <option th:each="prod : ${productos}" th:value="${prod.codigo}" th:text="${prod.nombre}"></option>
+							</select>
 					    </div>
-					    <div class="col-md-6 mb-3">
-					      <label for="NombreProd">Nombre del Producto</label>
-					      <input type="text" class="form-control" id="NombreProd" th:field="*{producto.nombre}" required>
-					    </div>
-					    <div class="col-md-6 mb-3">
-					      <label for="PrecioProd">Precio del Producto</label>
-					      <input type="number" class="form-control" id="PrecioProd" th:field="*{producto.precio}" required step="any">
-					    </div>
-					    <div class="col-md-6 mb-3">
-					      <label for="MarcaProd">Marca del Producto</label>
-					      <input type="text" class="form-control" id="MarcaProd" th:field="*{producto.marca}" required>
-					    </div>
-					    <div class="col-md-6 mb-3">
-					      <label for="StockProd">Stock del Producto</label>
-					      <input type="number" class="form-control" id="StockProd" th:field="*{producto.stock}" required>
-					    </div>
+					    
 					    <div class="col-md-6 mb-3">
 					      <label for="cantidad">Cantidad</label>
 					      <input type="number" class="form-control" id="cantidad" th:field="*{cantidad}" required>
@@ -61,8 +50,6 @@
 		</div>
 		
 		<footer th:replace="/layout/footer :: footer"></footer>
-		
-		<script type="text/javascript" th:src="@{/webjars/font-awesome/5.14.0/js/all.min.js}"></script>
 	
 	</body>
 </html>

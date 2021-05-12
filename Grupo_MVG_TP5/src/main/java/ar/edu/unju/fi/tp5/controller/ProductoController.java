@@ -47,7 +47,7 @@ public class ProductoController {
 	
 	@GetMapping("/producto/ultimo")
 	public String getUltimoProductoPage(Model model) {
-		model.addAttribute(productoService.colsultarUltimo());
+		model.addAttribute(productoService.consultarUltimo());
 		return "ultimoproducto";
 	}
 	

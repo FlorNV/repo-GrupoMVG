@@ -39,7 +39,7 @@ public class ProductoServiceImp implements IProductoService{
 	}
 	
 	@Override
-	public Producto colsultarUltimo() {
+	public Producto consultarUltimo() {
 		
 		Producto ultimo = productos.get(productos.size()-1);
 		LOGGER.info("METHOD: consultarUltimo ---- Se devuelve un objeto producto de la lista: "+ultimo);

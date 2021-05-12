@@ -1,6 +1,6 @@
 package ar.edu.unju.fi.tp5.controller;
 
-import java.util.List;
+//import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -31,14 +31,18 @@ public class CompraController {
 	
 	@GetMapping("/compra/nueva")
 	public String getCompraNuevaPage(Model model) {
-		List<Producto> listaProductos = productoService.getProductos();
+		//List<Producto> listaProductos = productoService.getProductos();
 		model.addAttribute("compra", compra);
-		model.addAttribute("productos", listaProductos);
+		model.addAttribute("productos", productoService.getProductos());
 		return "compranueva";
 	}
 	
 	@PostMapping("/compra/guardar")
 	public String getGuardarCompraPage(@ModelAttribute("compra")Compra compra) {
+		for(Producto p: productoService.getProductos()) {
+			if(p.getCodigo() == compra.getProducto().getCodigo())
+				compra.setProducto(p);
+		}
 		compraService.guardarCompra(compra);
 		return "resultadocompra";
 	}

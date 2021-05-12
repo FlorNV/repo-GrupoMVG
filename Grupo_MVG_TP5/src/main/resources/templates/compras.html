@@ -14,7 +14,7 @@
 		
 		<div class="container py-3">
 			<div class="row">
-				<div class="col-12">
+				<div class="container col-sm-12 col-md-10">
 					<h1 class="text-center">Compras registradas</h1>
 					<div class="btn-group py-2">
 						<a href="/compra/nueva" class="btn btn-outline-info"><i class="bi bi-plus-square mr-2"></i>Registrar una compra</a>
@@ -41,9 +41,13 @@
 						</table>
 					</div>
 				</div>
+				
+				<aside th:replace="/layout/publicidad :: aside"></aside>
+				
 			</div>
 		</div>
 		
 		<footer th:replace="/layout/footer :: footer"></footer>
+		
 	</body>
 </html>
