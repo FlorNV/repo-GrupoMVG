@@ -38,13 +38,13 @@ public class CompraController {
 	}
 	
 	@PostMapping("/compra/guardar")
-	public String getGuardarCompraPage(@ModelAttribute("compra")Compra compra) {
-		for(Producto p: productoService.getProductos()) {
-			if(p.getCodigo() == compra.getProducto().getCodigo())
-				compra.setProducto(p);
-		}
+	public ModelAndView getGuardarCompraPage(@ModelAttribute("compra")Compra compra) {
+		ModelAndView model = new ModelAndView("compras");
+		Producto producto = productoService.getProductoPorCodigo(compra.getProducto().getCodigo());
+		compra.setProducto(producto);
 		compraService.guardarCompra(compra);
-		return "resultadocompra";
+		model.addObject("compras", compraService.getCompras());
+		return model;
 	}
 	
 	@GetMapping("/compra/listado")

@@ -46,5 +46,16 @@ public class ProductoServiceImp implements IProductoService{
 		return ultimo;
 		
 	}
+
+	@Override
+	public Producto getProductoPorCodigo(int codigo) {
+		Producto prod = new Producto();
+		for(Producto p: productos) {
+			if(p.getCodigo()==codigo) {
+				prod = p;
+			}
+		}
+		return prod;
+	}
 	
 }
