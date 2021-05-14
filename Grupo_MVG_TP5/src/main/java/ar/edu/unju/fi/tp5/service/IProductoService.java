@@ -11,4 +11,5 @@ public interface IProductoService {
 	public List<Producto> getProductos();
 	public Producto consultarUltimo();
 
+	public Producto getProductoPorCodigo(int codigo);
 }
